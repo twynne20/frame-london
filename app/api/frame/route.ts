@@ -6,8 +6,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   let inputText: string | undefined = '';
 
   const body: FrameRequest = await req.json();
-  
-  // Add the allowFramegear option for local testing with Framegear
   const { isValid, message } = await getFrameMessage(body, { 
     allowFramegear: process.env.NODE_ENV !== 'production',
   });
@@ -24,6 +22,15 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         src: imageUrl,
         aspectRatio: '1:1',
       },
+      buttons: [
+        {
+          label: 'Submit Message',
+        },
+      ],
+      input: {
+        text: 'Enter your message',
+      },
+      postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
     }),
   );
 }

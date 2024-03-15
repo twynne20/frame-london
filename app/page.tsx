@@ -6,10 +6,10 @@ const frameMetadata = getFrameMetadata({
   buttons: [
     {
       label: 'Submit Message',
-    }
+    },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/park-1.png`,
+    src: `${NEXT_PUBLIC_URL}/api/image`,
     aspectRatio: '1:1',
   },
   input: {
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   title: 'tyson.xyz',
   description: 'LFG',
   openGraph: {
-    title: 'zizzamia.xyz',
+    title: 'tyson.xyz',
     description: 'LFG',
-    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
+    images: [`${NEXT_PUBLIC_URL}/api/image`],
   },
   other: {
     ...frameMetadata,
