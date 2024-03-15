@@ -5,27 +5,21 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Story time',
-    },
-    {
-      action: 'tx',
-      label: 'Send Base Sepolia',
-      target: `${NEXT_PUBLIC_URL}/api/tx`,
-      postUrl: `${NEXT_PUBLIC_URL}/api/tx-success`,
-    },
+      label: 'Submit Message',
+    }
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/park-3.png`,
+    src: `${NEXT_PUBLIC_URL}/park-1.png`,
     aspectRatio: '1:1',
   },
   input: {
-    text: 'Tell me a story',
+    text: 'Enter your message',
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
 });
 
 export const metadata: Metadata = {
-  title: 'zizzamia.xyz',
+  title: 'tyson.xyz',
   description: 'LFG',
   openGraph: {
     title: 'zizzamia.xyz',
@@ -40,7 +34,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>zizzamia.xyz</h1>
+      <h1>tyson.xyz</h1>
     </>
   );
 }
