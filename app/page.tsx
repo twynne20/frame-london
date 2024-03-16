@@ -5,11 +5,11 @@ import { NEXT_PUBLIC_URL } from './config';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Submit Message',
+      label: 'Test Submit Message',
     },
   ],
   image: {
-    src: `https://frame-london.vercel.app/api/image`,
+    src: `https://frame-london.vercel.app/public/park-1.png`,
     aspectRatio: '1:1',
   },
   input: {
