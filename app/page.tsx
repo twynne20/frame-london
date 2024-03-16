@@ -9,13 +9,13 @@ const frameMetadata = getFrameMetadata({
     },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/api/image`,
+    src: `https://frame-london.vercel.app/api/image`,
     aspectRatio: '1:1',
   },
   input: {
     text: 'Enter your message',
   },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+  postUrl: `https://frame-london.vercel.app/api/frame`,
 });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'tyson.xyz',
     description: 'LFG',
-    images: [`${NEXT_PUBLIC_URL}/api/image`],
+    images: [`https://frame-london.vercel.app/api/image`],
   },
   other: {
     ...frameMetadata,
