@@ -8,13 +8,13 @@ const frameMetadata = getFrameMetadata({
     { label: 'Generate Image' },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/park-3.png`,
+    src: `https://frame-london.vercel.app/park-3.png`,
     aspectRatio: '1:1',
   },
   input: {
     text: 'Enter text for image',
   },
-  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+  postUrl: `https://frame-london.vercel.app/api/frame`,
 });
 
 export const metadata: Metadata = {

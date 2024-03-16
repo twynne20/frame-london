@@ -12,7 +12,7 @@ export async function POST(req: NextRequest): Promise<Response> {
     return new NextResponse('Invalid frame message', { status: 400 });
   }
 
-  let imageUrl = `${NEXT_PUBLIC_URL}/park-3.png`;
+  let imageUrl = `https://frame-london.vercel.app/park-3.png`;
 
   if (message.input) {
     const text = message.input;
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest): Promise<Response> {
         src: imageUrl,
         aspectRatio: '1:1',
       },
-      postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
+      postUrl: `https://frame-london.vercel.app/api/frame`,
     }),
   );
 }
