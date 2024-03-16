@@ -24,7 +24,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       },
       buttons: [
         {
-          label: 'Submit Message',
+          label: 'Test Submit Message',
         },
       ],
       input: {
