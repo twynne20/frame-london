@@ -1,40 +1,29 @@
-import { getFrameMetadata } from '@coinbase/onchainkit/frame';
+// app/page.tsx
+import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 import { NEXT_PUBLIC_URL } from './config';
 
 const frameMetadata = getFrameMetadata({
   buttons: [
-    {
-      label: 'Test Submit Message',
-    },
+    { label: 'Generate Image' },
   ],
   image: {
-    src: `https://frame-london.vercel.app/park-1.png`,
+    src: `${NEXT_PUBLIC_URL}/park-3.png`,
     aspectRatio: '1:1',
   },
   input: {
-    text: 'Enter your message',
+    text: 'Enter text for image',
   },
-  postUrl: `https://frame-london.vercel.app/api/frame`,
+  postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
 });
 
 export const metadata: Metadata = {
-  title: 'tyson.xyz',
-  description: 'LFG',
-  openGraph: {
-    title: 'tyson.xyz',
-    description: 'LFG',
-    images: [`https://frame-london.vercel.app/park-1.png`],
-  },
+  manifest: '/manifest.json',
   other: {
     ...frameMetadata,
   },
 };
 
 export default function Page() {
-  return (
-    <>
-      <h1>tyson.xyz</h1>
-    </>
-  );
+  return <div>Enter text and click Generate Image</div>;
 }

@@ -1,20 +1,23 @@
-import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
+// api/frame/route.ts
+import { getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
-import { NEXT_PUBLIC_URL } from '../../config';
+import { NEXT_PUBLIC_URL } from '../../config'
+import { generateImage } from '../../../lib/generateImage';
 
-async function getResponse(req: NextRequest): Promise<NextResponse> {
-  let inputText: string | undefined = '';
+export async function POST(req: NextRequest): Promise<Response> {
+  const frameRequest = await req.json();
+  const { message } = await getFrameMessage(frameRequest);
 
-  const body: FrameRequest = await req.json();
-  const { isValid, message } = await getFrameMessage(body, { 
-    allowFramegear: process.env.NODE_ENV !== 'production',
-  });
-
-  if (isValid && message?.input) {
-    inputText = message.input;
+  if (!message) {
+    return new NextResponse('Invalid frame message', { status: 400 });
   }
 
-  const imageUrl = `${NEXT_PUBLIC_URL}/api/image?text=${encodeURIComponent(inputText || '')}`;
+  let imageUrl = `${NEXT_PUBLIC_URL}/park-3.png`;
+
+  if (message.input) {
+    const text = message.input;
+    imageUrl = await generateImage(text);
+  }
 
   return new NextResponse(
     getFrameHtmlResponse({
@@ -22,21 +25,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         src: imageUrl,
         aspectRatio: '1:1',
       },
-      buttons: [
-        {
-          label: 'Test Submit Message',
-        },
-      ],
-      input: {
-        text: 'Enter your message',
-      },
       postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
     }),
   );
 }
-
-export async function POST(req: NextRequest): Promise<Response> {
-  return getResponse(req);
-}
-
-export const dynamic = 'force-dynamic';
