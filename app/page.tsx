@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'tyson.xyz',
     description: 'LFG',
-    images: [`https://frame-london.vercel.app/api/image`],
+    images: [`https://frame-london.vercel.app/public/park-1.png`],
   },
   other: {
     ...frameMetadata,
